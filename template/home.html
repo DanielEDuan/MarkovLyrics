@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lyrics Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/home.css')}}">
+</head>
+
+<body>
+    <h1>Markov lyrics Generator</h1>
+
+    <p>You can enter the name of an artist and generate a song from their lyrics</p>
+
+    <form action="{{url_for('lyricsGenerator')}}" method="post" id="form">
+        <input type="text" id="search" name="search" placeholder="Search for an artist...">
+        <input type="submit" id="submit">
+    </form>
+
+    <div id="lyrics">
+    {% for line in song %}
+
+        <p>{{line}}</p>
+
+    {% endfor %}
+    </div>
+
+</body>
+</html>
